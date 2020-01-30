@@ -17,13 +17,23 @@ function generateBackground() {
     while (x < NUM_COLS) {
       let randomSize = Math.floor(Math.random()*2);
       const col = document.createElement("div");
-      if (y === 5 && x < 6) {
+      if ((y === 4 && x === 5) || 
+        (y === 5 && x === 7) || 
+        (y === 7 && x === 3) ||
+        (y === 8 && x === 5)) {
+        // random between red or blue
+        const colors = ["red", "blue"];
+        const color = colors[Math.floor(Math.random()*2)];
+        col.classList.add("c2");
+        col.classList.add(color);
+        x += 2;
+      } else if (y === 5 && x < 6) {
         col.classList.add("c1");
         x +=1;
-      } else if (y === 6 && x > 3 && x < 10) {
+      } else if (y === 6 && x > 2 && x < 9) {
         col.classList.add("c1");
         x += 1;
-      } else if (y === 7 && (x === 7 || x === 8)) {
+      } else if (y === 7 && (x > 4 && x < 8)) {
         col.classList.add("c1");
         x += 1;
       } else if (x === 0 || x === 11) {
